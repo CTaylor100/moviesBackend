@@ -22,3 +22,355 @@ Migrating to CreateMovies (20201205235908)
   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5485226136958144290)[0m
   [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (7.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "movies"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Create (0.8ms)[0m  [1m[32mINSERT INTO "movies" ("title", "year", "poster_url") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Love Actually"], ["year", 2003], ["poster_url", "https://m.media-amazon.com/images/M/MV5BMTY4NjQ5NDc0Nl5BMl5BanBnXkFtZTYwNjk5NDM3._V1_UX182_CR0,0,182,268_AL_.jpg"]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Create (0.8ms)[0m  [1m[32mINSERT INTO "movies" ("title", "year", "poster_url") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Elf"], ["year", 2003], ["poster_url", "https://m.media-amazon.com/images/M/MV5BMzUxNzkzMzQtYjIxZC00NzU0LThkYTQtZjNhNTljMTA1MDA1L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Create (0.4ms)[0m  [1m[32mINSERT INTO "movies" ("title", "year", "poster_url") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "White Christmas"], ["year", 1954], ["poster_url", "https://m.media-amazon.com/images/M/MV5BYjI0ZTk0ZjQtZTMzOS00NDdmLTk0YzUtZTQ4NGRkNWFhZTkxXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_UX182_CR0,0,182,268_AL_.jpg"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Create (0.2ms)[0m  [1m[32mINSERT INTO "movies" ("title", "year", "poster_url") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Rudolph the Red-Nosed Reindeer"], ["year", 1964], ["poster_url", "https://m.media-amazon.com/images/M/MV5BYjdjZjkyYjUtOWJiZC00ZTE2LTk4MDktZjliOTk5ZDk5ZTZhXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_UY268_CR3,0,182,268_AL_.jpg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/movies" for ::1 at 2020-12-05 19:27:44 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 139)
+
+
+Started GET "/movies" for ::1 at 2020-12-05 19:28:44 -0500
+  
+SyntaxError (/Users/christinetaylor/Documents/zen/Projects/Project_4/movie_api/app/controllers/movies_controller.rb:4: syntax error, unexpected '}', expecting =>
+...json: {status: 200, Movies.all}
+...                              ^
+):
+  
+app/controllers/movies_controller.rb:4: syntax error, unexpected '}', expecting =>
+app/controllers/movies_controller.rb:4: syntax error, unexpected '}', expecting =>
+Started GET "/movies" for ::1 at 2020-12-05 19:29:10 -0500
+  
+SyntaxError (/Users/christinetaylor/Documents/zen/Projects/Project_4/movie_api/app/controllers/movies_controller.rb:4: syntax error, unexpected '}', expecting =>
+... json: {status: 200, Movie.all}
+...                              ^
+):
+  
+app/controllers/movies_controller.rb:4: syntax error, unexpected '}', expecting =>
+app/controllers/movies_controller.rb:4: syntax error, unexpected '}', expecting =>
+Started GET "/movies" for ::1 at 2020-12-05 19:29:12 -0500
+  
+ActionController::RoutingError (uninitialized constant MoviesController):
+  
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:92:in `rescue in controller_class_for'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:44:in `controller'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/movies" for ::1 at 2020-12-05 19:29:19 -0500
+  
+ActionController::RoutingError (uninitialized constant MoviesController):
+  
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:92:in `rescue in controller_class_for'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:44:in `controller'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/movies" for ::1 at 2020-12-05 19:30:10 -0500
+  
+ActionController::RoutingError (uninitialized constant MoviesController):
+  
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:92:in `rescue in controller_class_for'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:44:in `controller'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/movies" for ::1 at 2020-12-05 19:30:11 -0500
+  
+ActionController::RoutingError (uninitialized constant MoviesController):
+  
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:92:in `rescue in controller_class_for'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:44:in `controller'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/movies" for ::1 at 2020-12-05 19:31:29 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.8ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/movies_controller.rb:4:in `index'
+Completed 200 OK in 18ms (Views: 8.7ms | ActiveRecord: 7.6ms | Allocations: 3955)
+
+
+Started GET "/movies/2" for ::1 at 2020-12-05 19:32:29 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:9:in `show'
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 6.4ms | Allocations: 3538)
+
+
+Started POST "/movies" for ::1 at 2020-12-05 19:39:55 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for MoviesController):
+  
+actionpack (6.0.3.4) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/movies" for ::1 at 2020-12-05 19:40:23 -0500
+Processing by MoviesController#create as */*
+  Parameters: {"movie"=>{"title"=>"\"The Nightmare Before Christmas\"", "year"=>"1993", "poster_url"=>"\"https://m.media-amazon.com/images/M/MV5BNWE4OTNiM2ItMjY4Ni00ZTViLWFiZmEtZGEyNGY2ZmNlMzIyXkEyXkFqcGdeQXVyMDU5NDcxNw@@._V1_UX182_CR0,0,182,268_AL_.jpg\""}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/movies_controller.rb:15:in `create'
+  [1m[36mMovie Create (1.4ms)[0m  [1m[32mINSERT INTO "movies" ("title", "year", "poster_url") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "\"The Nightmare Before Christmas\""], ["year", 1993], ["poster_url", "\"https://m.media-amazon.com/images/M/MV5BNWE4OTNiM2ItMjY4Ni00ZTViLWFiZmEtZGEyNGY2ZmNlMzIyXkEyXkFqcGdeQXVyMDU5NDcxNw@@._V1_UX182_CR0,0,182,268_AL_.jpg\""]]
+  ↳ app/controllers/movies_controller.rb:15:in `create'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/movies_controller.rb:15:in `create'
+Completed 201 Created in 24ms (Views: 0.6ms | ActiveRecord: 10.8ms | Allocations: 5347)
+
+
+Started PUT "/movies/5" for ::1 at 2020-12-05 19:42:34 -0500
+Processing by MoviesController#update as */*
+  Parameters: {"movie"=>{"title"=>"\"Nightmare Before Christmas\"", "year"=>"1993", "poster_url"=>"\"https://m.media-amazon.com/images/M/MV5BNWE4OTNiM2ItMjY4Ni00ZTViLWFiZmEtZGEyNGY2ZmNlMzIyXkEyXkFqcGdeQXVyMDU5NDcxNw@@._V1_UX182_CR0,0,182,268_AL_.jpg\""}, "id"=>"5"}
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:23:in `update'
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/movies_controller.rb:24:in `update'
+  [1m[36mMovie Update (0.9ms)[0m  [1m[33mUPDATE "movies" SET "title" = $1 WHERE "movies"."id" = $2[0m  [["title", "\"Nightmare Before Christmas\""], ["id", 5]]
+  ↳ app/controllers/movies_controller.rb:24:in `update'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/movies_controller.rb:24:in `update'
+Completed 200 OK in 28ms (Views: 0.3ms | ActiveRecord: 9.7ms | Allocations: 6066)
+
+
+Started PUT "/movies/5" for ::1 at 2020-12-05 19:42:55 -0500
+Processing by MoviesController#update as */*
+  Parameters: {"movie"=>{"title"=>"Nightmare Before Christmas", "year"=>"1993", "poster_url"=>"https://m.media-amazon.com/images/M/MV5BNWE4OTNiM2ItMjY4Ni00ZTViLWFiZmEtZGEyNGY2ZmNlMzIyXkEyXkFqcGdeQXVyMDU5NDcxNw@@._V1_UX182_CR0,0,182,268_AL_.jpg"}, "id"=>"5"}
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:23:in `update'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/movies_controller.rb:24:in `update'
+  [1m[36mMovie Update (0.8ms)[0m  [1m[33mUPDATE "movies" SET "title" = $1, "poster_url" = $2 WHERE "movies"."id" = $3[0m  [["title", "Nightmare Before Christmas"], ["poster_url", "https://m.media-amazon.com/images/M/MV5BNWE4OTNiM2ItMjY4Ni00ZTViLWFiZmEtZGEyNGY2ZmNlMzIyXkEyXkFqcGdeQXVyMDU5NDcxNw@@._V1_UX182_CR0,0,182,268_AL_.jpg"], ["id", 5]]
+  ↳ app/controllers/movies_controller.rb:24:in `update'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/movies_controller.rb:24:in `update'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 2.1ms | Allocations: 2999)
+
+
+Started POST "/movies" for ::1 at 2020-12-05 19:43:36 -0500
+Processing by MoviesController#create as */*
+  Parameters: {"movie"=>{"title"=>"Nightmare Before Christmas", "year"=>"1993", "poster_url"=>"https://m.media-amazon.com/images/M/MV5BNWE4OTNiM2ItMjY4Ni00ZTViLWFiZmEtZGEyNGY2ZmNlMzIyXkEyXkFqcGdeQXVyMDU5NDcxNw@@._V1_UX182_CR0,0,182,268_AL_.jpg"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/movies_controller.rb:15:in `create'
+  [1m[36mMovie Create (1.6ms)[0m  [1m[32mINSERT INTO "movies" ("title", "year", "poster_url") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Nightmare Before Christmas"], ["year", 1993], ["poster_url", "https://m.media-amazon.com/images/M/MV5BNWE4OTNiM2ItMjY4Ni00ZTViLWFiZmEtZGEyNGY2ZmNlMzIyXkEyXkFqcGdeQXVyMDU5NDcxNw@@._V1_UX182_CR0,0,182,268_AL_.jpg"]]
+  ↳ app/controllers/movies_controller.rb:15:in `create'
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/movies_controller.rb:15:in `create'
+Completed 201 Created in 9ms (Views: 0.4ms | ActiveRecord: 2.7ms | Allocations: 2388)
+
+
+Started GET "/movies/6" for ::1 at 2020-12-05 19:43:53 -0500
+Processing by MoviesController#show as */*
+  Parameters: {"movie"=>{"title"=>"Nightmare Before Christmas", "year"=>"1993", "poster_url"=>"https://m.media-amazon.com/images/M/MV5BNWE4OTNiM2ItMjY4Ni00ZTViLWFiZmEtZGEyNGY2ZmNlMzIyXkEyXkFqcGdeQXVyMDU5NDcxNw@@._V1_UX182_CR0,0,182,268_AL_.jpg"}, "id"=>"6"}
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:9:in `show'
+Completed 200 OK in 16ms (Views: 0.4ms | ActiveRecord: 7.5ms | Allocations: 3358)
+
+
+Started DELETE "/movies/6" for ::1 at 2020-12-05 19:43:57 -0500
+Processing by MoviesController#destroy as */*
+  Parameters: {"movie"=>{"title"=>"Nightmare Before Christmas", "year"=>"1993", "poster_url"=>"https://m.media-amazon.com/images/M/MV5BNWE4OTNiM2ItMjY4Ni00ZTViLWFiZmEtZGEyNGY2ZmNlMzIyXkEyXkFqcGdeQXVyMDU5NDcxNw@@._V1_UX182_CR0,0,182,268_AL_.jpg"}, "id"=>"6"}
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:29:in `destroy'
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/movies_controller.rb:29:in `destroy'
+  [1m[36mMovie Destroy (0.6ms)[0m  [1m[31mDELETE FROM "movies" WHERE "movies"."id" = $1[0m  [["id", 6]]
+  ↳ app/controllers/movies_controller.rb:29:in `destroy'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/movies_controller.rb:29:in `destroy'
+Completed 204 No Content in 9ms (Views: 0.2ms | ActiveRecord: 2.3ms | Allocations: 2472)
+
+
